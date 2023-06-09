@@ -15,8 +15,6 @@ df['overweight'] = (bmi > 25).astype(int)
 df['cholesterol'] = (df['cholesterol'] != 1).astype(int)
 df['gluc'] = (df['gluc'] != 1).astype(int)
 
-print(df.tail())
-
 
 # Draw Categorical Plot
 def draw_cat_plot():
@@ -32,7 +30,6 @@ def draw_cat_plot():
   df_cat = df_cat.groupby(['cardio', 'variable', 'value']) \
                .size() \
                .reset_index(name='total')
-  df_cat.head()
 
   # Draw the catplot with 'sns.catplot()'
   g = sns.catplot(x='variable', y='total', hue='value', col='cardio', data=df_cat, kind='bar')
